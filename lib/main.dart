@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'app.dart';
 import 'core/locator.dart';
@@ -8,10 +9,10 @@ Future<void> main() async {
 
   // Instantiate our essentials and load data
   await init();
-  //SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-  //    .then((_) {
+  // add these lines
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(MyApp());
-  //});
 }
 
 Future<void> init() async {

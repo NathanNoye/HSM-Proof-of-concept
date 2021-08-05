@@ -31,6 +31,7 @@ dependencies:
   youtube_api: ^0.8.0
   carousel_slider: ^4.0.0
   video_player: ^2.1.12
+  flutter_countdown_timer: ^4.1.0
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +52,8 @@ flutter:
   assets:
     - assets/
     - assets/thumbnails/
+    - assets/events/
+    - assets/clothes/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
