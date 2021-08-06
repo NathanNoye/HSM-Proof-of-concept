@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:hsm_poc/core/constants.dart';
 import 'package:hsm_poc/models/sermon_model.dart';
 import 'package:hsm_poc/widgets/youtube_player.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class SermonDetailsScreen extends StatefulWidget {
   final SermonModel model;

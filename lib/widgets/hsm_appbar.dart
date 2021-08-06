@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hsm_poc/core/constants.dart';
+import 'package:hsm_poc/core/locator.dart';
+import 'package:hsm_poc/core/navigator.dart';
 
 class HsmAppBar extends StatefulWidget implements PreferredSizeWidget {
   final TabController? tabController;
@@ -19,6 +21,11 @@ class _HsmAppBarState extends State<HsmAppBar> {
 
   @override
   Widget build(BuildContext context) {
+    HsmNavigator.tabController!.addListener(() {
+      locator<HsmNavigator>().currentTab = HsmNavigator.tabController!.index;
+      setState(() {});
+    });
+
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
@@ -29,11 +36,13 @@ class _HsmAppBarState extends State<HsmAppBar> {
             'assets/mountains.png',
             color: kTextColor,
           ),
-          onPressed: () {},
+          onPressed: () {
+            locator<HsmNavigator>().animateTo(0);
+          },
         ),
       ),
       title: Center(
-          child: Text(tabNames[widget.tabController!.index],
+          child: Text(tabNames[locator<HsmNavigator>().currentTab],
               style: TextStyle(
                   color: kTextColor,
                   fontWeight: FontWeight.w900,

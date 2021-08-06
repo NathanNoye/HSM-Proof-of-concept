@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hsm_poc/core/constants.dart';
+import 'package:hsm_poc/core/locator.dart';
+import 'package:hsm_poc/core/navigator.dart';
 import 'package:hsm_poc/views/events_screen.dart';
 import 'package:hsm_poc/views/more_screen.dart';
 import 'package:hsm_poc/views/serve_screen.dart';
@@ -19,11 +21,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  //HsmNavigator _hsmNavigator = locator<HsmNavigator>();
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: 5);
+    locator<HsmNavigator>().init(_tabController);
   }
 
   @override
@@ -49,7 +53,6 @@ class _HomeScreenState extends State<HomeScreen>
             _tabController.animateTo(2);
           },
           tooltip: 'watch',
-          //child: Icon(Icons.play_arrow),
           child: Container(
               child: Icon(Icons.play_arrow),
               width: 55,

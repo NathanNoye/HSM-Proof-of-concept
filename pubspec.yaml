@@ -32,10 +32,18 @@ dependencies:
   carousel_slider: ^4.0.0
   video_player: ^2.1.12
   flutter_countdown_timer: ^4.1.0
+  flutter_dialogs: ^2.1.0
+  flutter_native_splash: ^1.2.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.9.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/mountains_icon.jpg"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

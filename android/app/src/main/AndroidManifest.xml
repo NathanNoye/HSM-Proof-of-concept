@@ -2,7 +2,7 @@
     package="com.example.hsm_poc">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="hsm_poc"
+        android:label="Hillside Students"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

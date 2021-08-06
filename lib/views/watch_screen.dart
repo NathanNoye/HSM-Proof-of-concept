@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hsm_poc/core/constants.dart';
+import 'package:hsm_poc/helpers/show_platform_dialog.dart';
 import 'package:hsm_poc/widgets/videoplayer.dart';
-
-import 'dart:math';
 
 class WatchScreen extends StatefulWidget {
   @override
@@ -72,31 +71,38 @@ class _WatchScreenState extends State<WatchScreen> {
       child: GridView.count(
           crossAxisCount: 2,
           children: sermonCategories
-              .map((i) => Container(
-                  margin: EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.blueGrey[900],
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 2,
-                        blurRadius: 7,
-                        offset: Offset(0, 5),
-                      ),
-                    ],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Center(
-                        child: Wrap(children: [
-                      Text(i,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontSize: 22))
-                    ])),
-                  )))
+              .map((i) => GestureDetector(
+                    onTap: () {
+                      showModal(context,
+                          body:
+                              'This will open a detail screen showing all videos in the series and give a series summary. Also design is not final');
+                    },
+                    child: Container(
+                        margin: EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.blueGrey[900],
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 7,
+                              offset: Offset(0, 5),
+                            ),
+                          ],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                              child: Wrap(children: [
+                            Text(i,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 22))
+                          ])),
+                        )),
+                  ))
               .toList()),
     );
   }

@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/current_remaining_time.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:hsm_poc/core/constants.dart';
+import 'package:hsm_poc/helpers/show_platform_dialog.dart';
 import 'package:hsm_poc/models/event_model.dart';
-import 'package:hsm_poc/models/sermon_model.dart';
 
 class EventsScreen extends StatefulWidget {
   @override
@@ -29,63 +29,70 @@ class _EventsScreenState extends State<EventsScreen> {
   Widget _buildTileItem(EventModel sermon) {
     double screenSize = MediaQuery.of(context).size.width;
 
-    return Stack(
-      alignment: Alignment(0, 0),
-      children: [
-        Container(
-          height: ((screenSize) / (16 / 6)).clamp(100, 400),
-          width: (screenSize).clamp(200, 500),
-          margin: EdgeInsets.all(kDefaultPadding / 2),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: ExactAssetImage(sermon.imagePath),
-              fit: BoxFit.cover,
-              colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.5), BlendMode.dstATop),
+    return GestureDetector(
+      onTap: () {
+        showModal(context,
+            body:
+                'This will open to a new screen where it will give more details. Students will be able to sign up and pay');
+      },
+      child: Stack(
+        alignment: Alignment(0, 0),
+        children: [
+          Container(
+            height: ((screenSize) / (16 / 6)).clamp(100, 400),
+            width: (screenSize).clamp(200, 500),
+            margin: EdgeInsets.all(kDefaultPadding / 2),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: ExactAssetImage(sermon.imagePath),
+                fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(
+                    Colors.black.withOpacity(0.5), BlendMode.dstATop),
+              ),
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.black,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 2,
+                  blurRadius: 7,
+                  offset: Offset(0, 5),
+                ),
+              ],
             ),
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.black,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 2,
-                blurRadius: 7,
-                offset: Offset(0, 5),
+          ),
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: kDefaultPadding),
+                child: Text(sermon.title,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 28,
+                        color: Colors.white)),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: kDefaultPadding),
+                child: Text(sermon.speaker,
+                    style: TextStyle(fontSize: 20, color: Colors.white)),
+              ),
+              SizedBox(height: 10),
+              CountdownTimer(
+                endTime: sermon.eventTime.millisecondsSinceEpoch,
+                widgetBuilder: (_, CurrentRemainingTime? time) {
+                  if (time == null) {
+                    return Text('Game over');
+                  }
+                  return Text(
+                    '${time.days} Days ${time.hours} : ${time.min} : ${time.sec}',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  );
+                },
               ),
             ],
-          ),
-        ),
-        Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: kDefaultPadding),
-              child: Text(sermon.title,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 28,
-                      color: Colors.white)),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: kDefaultPadding),
-              child: Text(sermon.speaker,
-                  style: TextStyle(fontSize: 20, color: Colors.white)),
-            ),
-            SizedBox(height: 10),
-            CountdownTimer(
-              endTime: sermon.eventTime.millisecondsSinceEpoch,
-              widgetBuilder: (_, CurrentRemainingTime? time) {
-                if (time == null) {
-                  return Text('Game over');
-                }
-                return Text(
-                  '${time.days} Days ${time.hours} : ${time.min} : ${time.sec}',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                );
-              },
-            ),
-          ],
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 

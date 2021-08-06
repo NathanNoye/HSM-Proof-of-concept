@@ -1,15 +1,11 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_countdown_timer/current_remaining_time.dart';
 import 'package:hsm_poc/core/constants.dart';
 import 'package:hsm_poc/models/carousel_model.dart';
 import 'package:hsm_poc/models/sermon_model.dart';
 import 'package:hsm_poc/views/sermon_details_screen.dart';
 import 'package:hsm_poc/widgets/carousel.dart';
-import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 
 class HomeFeed extends StatefulWidget {
   @override
@@ -42,7 +38,7 @@ class _HomeFeedState extends State<HomeFeed> {
           _generateRow('Life Lines', lifeLines),
           _generateRow('Grace Is', graceis),
           SizedBox(
-            height: 60,
+            height: 100,
           )
         ],
       )),
@@ -202,8 +198,8 @@ class _HomeFeedState extends State<HomeFeed> {
           if (model.type == SermonCardType.newsletter) {
             return DraggableScrollableSheet(
               initialChildSize: 1,
+              minChildSize: 0.99,
               expand: true,
-              minChildSize: 0.999999999999,
               builder:
                   (BuildContext context, ScrollController scrollController) {
                 return SingleChildScrollView(
@@ -231,7 +227,7 @@ class _HomeFeedState extends State<HomeFeed> {
   }
 
   Widget _createBottomSheetChildren(SermonModel model) {
-    double screenSize = MediaQuery.of(context).size.width;
+    //double screenSize = MediaQuery.of(context).size.width;
 
     if (model.type == SermonCardType.clothes) {
       return Row(
@@ -317,6 +313,7 @@ class _HomeFeedState extends State<HomeFeed> {
     } else if (model.type == SermonCardType.newsletter) {
       return Column(
         children: [
+          /*
           Stack(
             alignment: Alignment.topCenter,
             children: [
@@ -355,6 +352,13 @@ class _HomeFeedState extends State<HomeFeed> {
               )
             ],
           ),
+          */
+          SizedBox(height: 20),
+          Text(model.title,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30)),
           Padding(
             padding: const EdgeInsets.all(kDefaultPadding),
             child: Wrap(
@@ -366,7 +370,20 @@ class _HomeFeedState extends State<HomeFeed> {
                     )),
               ],
             ),
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.all(kDefaultPadding),
+            child: Wrap(
+              children: [
+                Text(
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc auctor egestas nibh vitae consectetur. Sed porttitor ullamcorper egestas. Proin nec dictum ligula, eget consequat nisi. Maecenas quis turpis neque. Etiam ut feugiat massa. Proin ut tristique justo, vestibulum hendrerit nunc. Proin ultricies mi a auctor malesuada. Cras bibendum vulputate porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc auctor egestas nibh vitae consectetur. Sed porttitor ullamcorper egestas. Proin nec dictum ligula, eget consequat nisi. Maecenas quis turpis neque. Etiam ut feugiat massa. Proin ut tristique justo, vestibulum hendrerit nunc. Proin ultricies mi a auctor malesuada. Cras bibendum vulputate porta',
+                    style: TextStyle(
+                      fontSize: 16,
+                    )),
+              ],
+            ),
+          ),
+          SizedBox(height: 20),
         ],
       );
     }
