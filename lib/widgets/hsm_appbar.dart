@@ -6,8 +6,10 @@ import 'package:hsm_poc/core/navigator.dart';
 
 class HsmAppBar extends StatefulWidget implements PreferredSizeWidget {
   final TabController? tabController;
+  final Function() onTap;
 
-  const HsmAppBar({Key? key, @required this.tabController}) : super(key: key);
+  const HsmAppBar({Key? key, @required this.tabController, required this.onTap})
+      : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _HsmAppBarState();
@@ -17,7 +19,7 @@ class HsmAppBar extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _HsmAppBarState extends State<HsmAppBar> {
-  final List<String> tabNames = ['HSM', 'Events', 'Watch', 'Serve', 'More'];
+  final List<String> tabNames = ['HSM', 'Events', 'Watch', 'Give', 'More'];
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +55,9 @@ class _HsmAppBarState extends State<HsmAppBar> {
             Icons.account_circle,
             color: kTextColor,
           ),
-          onPressed: () {},
+          onPressed: () {
+            widget.onTap();
+          },
         ),
         SizedBox(width: kDefaultPadding / 2)
       ],

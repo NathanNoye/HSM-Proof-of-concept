@@ -127,5 +127,12 @@ class _EventsScreenState extends State<EventsScreen> {
       eventTime: DateTime(2022, 2, 28, 19, 00),
       cost: 75.00,
     ),
+    EventModel(
+        'Movie night',
+        'September 12, 2021',
+        'assets/events/nacho_night.jpg',
+        'https://www.youtube.com/watch?v=c6CkBjoKZQA&list=PLbMfNdlwiS7mokKD9CGHfOK-dXcsQlRJv&index=1',
+        eventTime: DateTime(2022, 9, 12, 19, 30),
+        cost: 0.00),
   ];
 }
