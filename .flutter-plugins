@@ -1,5 +1,10 @@
 # This is a generated file; do not edit or check into version control.
-flutter_inappwebview=D:\\APPS\\SDKs\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\flutter_inappwebview-5.3.2\\
-video_player=D:\\APPS\\SDKs\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\video_player-2.1.12\\
-video_player_web=D:\\APPS\\SDKs\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\video_player_web-2.0.2\\
-youtube_api=D:\\APPS\\SDKs\\flutter\\.pub-cache\\hosted\\pub.dartlang.org\\youtube_api-0.8.0\\
+audioplayers=/Users/natenoye/development/flutter/.pub-cache/hosted/pub.dartlang.org/audioplayers-0.18.3/
+flutter_inappwebview=/Users/natenoye/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-5.3.2/
+path_provider=/Users/natenoye/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.2/
+path_provider_linux=/Users/natenoye/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.0.2/
+path_provider_macos=/Users/natenoye/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.2/
+path_provider_windows=/Users/natenoye/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.3/
+video_player=/Users/natenoye/development/flutter/.pub-cache/hosted/pub.dartlang.org/video_player-2.1.12/
+video_player_web=/Users/natenoye/development/flutter/.pub-cache/hosted/pub.dartlang.org/video_player_web-2.0.2/
+youtube_api=/Users/natenoye/development/flutter/.pub-cache/hosted/pub.dartlang.org/youtube_api-0.8.0/

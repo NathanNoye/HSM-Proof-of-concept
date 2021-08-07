@@ -57,11 +57,11 @@ class _HomeScreenState extends State<HomeScreen>
                   children: [
                     CircleAvatar(
                         radius: 50,
-                        backgroundImage: AssetImage('assets/roger.jpg')),
+                        backgroundImage: AssetImage('assets/nate.jpeg')),
                     SizedBox(
                       height: 10,
                     ),
-                    Text('Roger Reid',
+                    Text('Hey Nate!',
                         style: TextStyle(color: Colors.white, fontSize: 22)),
                   ],
                 )),
@@ -151,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen>
           )),
           TweenAnimationBuilder(
               tween: Tween<double>(begin: 0, end: value),
-              duration: Duration(milliseconds: 500),
+              duration: Duration(milliseconds: 200),
               curve: Curves.easeInOut,
               builder: (_, double val, __) {
                 return Transform(

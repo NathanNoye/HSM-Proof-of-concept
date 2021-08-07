@@ -1,8 +1,10 @@
 import 'dart:async';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_dialogs/flutter_dialogs.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:hsm_poc/core/constants.dart';
@@ -30,6 +32,7 @@ class _GivingScreenState extends State<GivingScreen> {
   ];
 
   late ConfettiController _confettiController;
+  AudioPlayer audioPlayer = AudioPlayer();
 
   @override
   void initState() {
@@ -135,6 +138,8 @@ class _GivingScreenState extends State<GivingScreen> {
                                     'Thanks to you, you\'ve helped further God\'s kingdom. To see the details of this giving, visits "my givings" in your account.');
 
                             _confettiController.play();
+                            audioPlayer.play('assets/ding.mp3', isLocal: true);
+                            HapticFeedback.heavyImpact();
                           });
                         },
                       )
